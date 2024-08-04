@@ -1707,7 +1707,6 @@ chokidar@^2.0.2:
     normalize-path "^2.1.1"
     path-is-absolute "^1.0.0"
     readdirp "^2.0.0"
-    upath "^1.0.0"
   optionalDependencies:
     fsevents "^1.1.2"
 
@@ -7071,7 +7070,6 @@ react-fusioncharts@^1.0.5:
   resolved "https://registry.npmjs.org/react-fusioncharts/-/react-fusioncharts-1.0.5.tgz"
   integrity sha512-odEvfY1JKxGgsM9R1+qKBYqo1o35mY634hJEbYBqEPDb4UG055sKAcVVQOzRwxVssDVoY+7RjZnOF62oKbquHA==
   dependencies:
-    fusioncharts "^3.12.2"
     uuid "^3.2.1"
 
 react-is@^16.3.1:
@@ -8678,10 +8676,10 @@ unzip-response@^2.0.1:
   resolved "https://registry.npmjs.org/unzip-response/-/unzip-response-2.0.1.tgz"
   integrity sha1-0vD3N9FrBhXnKmk17QQhRXLVb5c=
 
-upath@^1.0.0:
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/upath/-/upath-1.0.4.tgz"
-  integrity sha512-d4SJySNBXDaQp+DPrziv3xGS6w3d2Xt69FijJr86zMPBy23JEloMCEOUBBzuN7xCtjLCnmB9tI/z7SBCahHBOw==
+upath@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/upath/-/upath-2.0.1.tgz"
+  integrity sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==
 
 update-notifier@^2.3.0:
   version "2.5.0"

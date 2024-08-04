@@ -64,9 +64,6 @@ class HamburgerMenu extends React.Component {
 								Doctors and clinics
 							</MenuItem>
 						</a>
-						<a href="/charts" style={{ textDecoration: "none" }}>
-							<MenuItem onClick={this.handleClose}>Charts</MenuItem>
-						</a>
 					</Menu>
 				</div>
 			</Hidden>

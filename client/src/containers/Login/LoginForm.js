@@ -1,6 +1,6 @@
 // Importing React since we are using React.
 import React from "react";
-// Importing material-ui components and style.
+// Importing UI components and styles from Material-UI.
 import Card, { CardContent } from "material-ui/Card";
 import { withStyles } from "material-ui/styles";
 import Typography from "material-ui/Typography";
@@ -12,12 +12,11 @@ import InputAdornment from "material-ui/Input/InputAdornment";
 import Input from "material-ui/Input";
 import IconButton from "material-ui/IconButton";
 
-// Style
+// Define styles for the Material-UI components.
 const styles = (theme) => ({
 	textField: {
 		marginTop: 60,
 	},
-
 	root: {
 		display: "flex",
 		flexWrap: "wrap",
@@ -49,18 +48,18 @@ const styles = (theme) => ({
 });
 
 class LoginForm extends React.Component {
-	// State to toggle password visibility.
+	// State to manage password visibility
 	state = {
 		password: "",
 		showPassword: false,
 	};
 
-	// Toggle password visibility
+	// Prevent default action when mouse is down on the password toggle button.
 	handleMouseDownPassword = (event) => {
 		event.preventDefault();
 	};
 
-	// Toggle password visiblity
+	// Toggle the visibility of the password field.
 	handleClickShowPassword = () => {
 		this.setState({ showPassword: !this.state.showPassword });
 	};
@@ -72,6 +71,7 @@ class LoginForm extends React.Component {
 			<div className="animated bounceInLeft">
 				<Card className={classes.root}>
 					<CardContent>
+						{/* Display the login heading */}
 						<Typography
 							gutterBottom
 							variant="headline"
@@ -85,6 +85,7 @@ class LoginForm extends React.Component {
 							create an account.
 						</Typography>
 						<form noValidate autoComplete="off">
+							{/* Username input field */}
 							<FormControl className={classes.formControl} fullWidth>
 								<InputLabel htmlFor="Username">Username</InputLabel>
 								<Input
@@ -94,11 +95,13 @@ class LoginForm extends React.Component {
 									onChange={this.props.handleUsernameChange}
 									className={classes.textField}
 								/>
+								{/* Display username validation error */}
 								<Typography className={classes.formError} component="p">
 									{this.props.usernameMissingError}
 								</Typography>
 							</FormControl>
 
+							{/* Password input field */}
 							<FormControl className={classes.formControl} fullWidth>
 								<InputLabel htmlFor="password">Password</InputLabel>
 								<Input
@@ -123,11 +126,13 @@ class LoginForm extends React.Component {
 										</InputAdornment>
 									}
 								/>
+								{/* Display password validation error */}
 								<Typography className={classes.formError} component="p">
 									{this.props.passwordMissingError}
 								</Typography>
 							</FormControl>
 
+							{/* Toggle password visibility button */}
 							<Button
 								size="large"
 								className={classes.button}
@@ -140,6 +145,7 @@ class LoginForm extends React.Component {
 							</Button>
 							<br />
 
+							{/* Submit button for login */}
 							<Button
 								size="large"
 								className={classes.button}
@@ -149,6 +155,8 @@ class LoginForm extends React.Component {
 							>
 								LOG IN
 							</Button>
+
+							{/* Link to sign-up page */}
 							<Button
 								size="large"
 								className={classes.signUpButton}

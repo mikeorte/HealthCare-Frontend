@@ -1,6 +1,5 @@
-// Importing React since we are using React.
+// Importing necessary libraries and components
 import React from "react";
-// Importing material-ui components and style.
 import Card, { CardContent } from "material-ui/Card";
 import { withStyles } from "material-ui/styles";
 import Typography from "material-ui/Typography";
@@ -12,12 +11,11 @@ import InputAdornment from "material-ui/Input/InputAdornment";
 import Input from "material-ui/Input";
 import IconButton from "material-ui/IconButton";
 
-// Style
+// Define styles for the component
 const styles = (theme) => ({
 	textField: {
 		marginTop: 60,
 	},
-
 	root: {
 		display: "flex",
 		flexWrap: "wrap",
@@ -49,18 +47,18 @@ const styles = (theme) => ({
 });
 
 class LoginForm extends React.Component {
-	// State to toggle password visibility.
+	// Initialize state for the component
 	state = {
 		password: "",
 		showPassword: false,
 	};
 
-	// Toggle password visibility
+	// Prevent default action when mouse is down on password toggle
 	handleMouseDownPassword = (event) => {
 		event.preventDefault();
 	};
 
-	// Toggle password visiblity
+	// Toggle the visibility of the password field
 	handleClickShowPassword = () => {
 		this.setState({ showPassword: !this.state.showPassword });
 	};
@@ -97,6 +95,7 @@ class LoginForm extends React.Component {
 										shrink: true,
 									}}
 								/>
+								{/* Display validation error for username */}
 								<Typography className={classes.formError} component="p">
 									{this.props.usernameMissingError}
 								</Typography>
@@ -129,6 +128,7 @@ class LoginForm extends React.Component {
 										</InputAdornment>
 									}
 								/>
+								{/* Display validation errors for password */}
 								<Typography className={classes.formError} component="p">
 									{this.props.passwordMissingError}
 								</Typography>
@@ -138,9 +138,11 @@ class LoginForm extends React.Component {
 							</FormControl>
 
 							<FormControl className={classes.formControl} fullWidth>
-								<InputLabel htmlFor="Password">Confirm password</InputLabel>
+								<InputLabel htmlFor="ConfirmPassword">
+									Confirm password
+								</InputLabel>
 								<Input
-									id="password"
+									id="confirm-password"
 									type={this.state.showPassword ? "text" : "password"}
 									value={this.props.confirmPassword}
 									onChange={this.props.handleConfirmPasswordChange}
@@ -164,6 +166,7 @@ class LoginForm extends React.Component {
 										</InputAdornment>
 									}
 								/>
+								{/* Display validation error for confirm password */}
 								<Typography className={classes.formError} component="p">
 									{this.props.confirmPasswordError}
 								</Typography>
@@ -181,6 +184,7 @@ class LoginForm extends React.Component {
 									value={this.props.email}
 									onChange={this.props.handleEmailChange}
 								/>
+								{/* Display validation error for email */}
 								<Typography className={classes.formError} component="p">
 									{this.props.emailMissingError}
 								</Typography>
@@ -225,4 +229,5 @@ class LoginForm extends React.Component {
 	}
 }
 
+// Export the LoginForm component with styles
 export default withStyles(styles)(LoginForm);

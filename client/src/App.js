@@ -20,8 +20,6 @@ import Appointments from "./containers/Appointments";
 import MedLog from "./containers/MedLog";
 // Importing the Prescriptions page
 import Prescriptions from "./containers/Prescriptions";
-// Importing the Charts page
-import Charts from "./containers/Charts";
 // Importing the Login page
 import Login from "./containers/Login";
 // Importing the Signup page
@@ -78,7 +76,6 @@ class App extends Component {
 							<Route exact path="/appointments" component={Appointments} />
 							<Route exact path="/log" component={MedLog} />
 							<Route exact path="/prescriptions" component={Prescriptions} />
-							<Route exact path="/charts" component={Charts} />
 							<Route component={NoMatch} />
 						</Switch>
 					</div>

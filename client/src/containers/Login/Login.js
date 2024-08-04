@@ -1,16 +1,18 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
-// Importing UI components and style from material-ui-next
+// Importing UI components and styles from Material-UI
 import Typography from "material-ui/Typography";
 import Grid from "material-ui/Grid";
 import { withStyles } from "material-ui/styles";
-// Import LoginForm
+// Importing LoginForm component
 import LoginForm from "./LoginForm";
+// Importing axios for making HTTP requests
 import axios from "axios";
+// Importing withRouter for navigation
 import { withRouter } from "react-router-dom";
 
+// Define styles for the Material-UI components
 const styles = {
-	// Tell Material-UI what's the font-size on the html element is.
 	root: {
 		flexGrow: 1,
 	},
@@ -20,6 +22,7 @@ const styles = {
 };
 
 class Login extends Component {
+	// Initial state for the component
 	state = {
 		username: "",
 		password: "",
@@ -28,8 +31,7 @@ class Login extends Component {
 		passwordMissingError: "",
 	};
 
-	// Keep track of what user enters for username so that input can be grabbed later.
-	// If form validation error is showing, remove error from page when user starts typing.
+	// Handle changes in the username input field
 	handleUsernameChange = (event) => {
 		this.setState({
 			username: event.target.value,
@@ -37,8 +39,7 @@ class Login extends Component {
 		});
 	};
 
-	// Keep track of what user enters into password input field so that input can be grabbed later.
-	// If form validation error is showing, remove error from page when user starts typing.
+	// Handle changes in the password input field
 	handlePasswordChange = (event) => {
 		this.setState({
 			password: event.target.value,
@@ -46,42 +47,48 @@ class Login extends Component {
 		});
 	};
 
-	// When user enters credentials and clicks LOG IN button to log in.
+	// Handle form submission for user login
 	handleFormSubmit = (event) => {
-		const { history, setUser } = this.props;
 		event.preventDefault();
+		const { history, setUser } = this.props;
 
-		// If username field is empty when user submits form, show error.
+		// Basic form validation
+		let valid = true;
+
 		if (this.state.username === "") {
-			this.setState({
-				usernameMissingError: "Username is required.",
-			});
+			this.setState({ usernameMissingError: "Username is required." });
+			valid = false;
 		}
 
-		// If the password field is empty when user submits form, show error.
 		if (this.state.password === "") {
-			this.setState({
-				passwordMissingError: "Password is required.",
-			});
+			this.setState({ passwordMissingError: "Password is required." });
+			valid = false;
 		}
 
-		setUser("i am the user");
-		axios
-			.post("/Auth/login", {
-				username: this.state.username,
-				password: this.state.password,
-			})
-			.then((res) => {
-				console.log(res.data);
-				setUser(res.data.userId);
-				history.push("/home");
-			})
-			.catch((err) => console.log(err));
+		// If the form is valid, attempt to log in the user
+		if (valid) {
+			axios
+				.post("/Auth/login", {
+					username: this.state.username,
+					password: this.state.password,
+				})
+				.then((res) => {
+					console.log(res.data);
+					setUser(res.data.userId);
+					history.push("/home");
+				})
+				.catch((err) => {
+					console.error("Login failed:", err);
+					this.setState({
+						passwordMissingError: "Invalid username or password.",
+					});
+				});
+		}
 	};
 
 	render() {
 		const { classes } = this.props;
-		return [
+		return (
 			<div style={{ padding: 70 }}>
 				<Grid item xs={12} className={classes.headline}>
 					<Grid
@@ -90,10 +97,11 @@ class Login extends Component {
 						className={classes.root}
 						justify="center"
 					>
+						{/* Welcome message */}
 						<Typography variant="display1">Welcome to HealthCare</Typography>
 					</Grid>
 				</Grid>
-				,
+
 				<div className="main-content-section">
 					<Grid item xs={12} className={classes.headline}>
 						<Grid
@@ -102,6 +110,7 @@ class Login extends Component {
 							className={classes.root}
 							justify="center"
 						>
+							{/* LoginForm component for handling user login */}
 							<LoginForm
 								handleFormSubmit={this.handleFormSubmit}
 								handleUsernameChange={this.handleUsernameChange}
@@ -112,11 +121,10 @@ class Login extends Component {
 						</Grid>
 					</Grid>
 				</div>
-			</div>,
-		];
+			</div>
+		);
 	}
 }
 
-// Exporting the Login component
-// so that the App.js file can render the Login page.
+// Exporting the Login component so it can be rendered in App.js
 export default withRouter(withStyles(styles)(Login));
