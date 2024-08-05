@@ -24,13 +24,13 @@ This project showcases my ability to develop a complete frontend application fro
 - **My Health Log**: A detailed view of the user's health records with easy entry and update options.
   ![My Health Log](demo/log.png)
 - **My Symptom Journal**: Simple interface for logging and reviewing symptoms.
-  ![My Symptom Journal](demo/symptom.png)
+  ![My Symptom Journal](demo/symptoms.png)
 - **Appointments**: Calendar view for managing healthcare appointments effectively.
   ![Appointments](demo/appointments.png)
 - **My Prescriptions**: Organized display of current and past prescriptions.
   ![My Prescriptions](demo/prescriptions.png)
 - **Doctors and Clinics**: Contact and details management for healthcare providers.
-  ![Doctors and Clinics](demo/doctor-clinics.png)
+  ![Doctors and Clinics](demo/doctor-clinic.png)
 
 ## Technologies Used
 
