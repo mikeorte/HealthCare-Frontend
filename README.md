@@ -22,7 +22,7 @@ This project showcases my ability to develop a complete frontend application fro
 - **Dashboard**: An intuitive dashboard providing easy navigation to all health-related features.
   ![Dashboard](demo/dashboard.png)
 - **My Health Log**: A detailed view of the user's health records with easy entry and update options.
-  ![My Health Log](demo/log.png)
+  ![My Health Log](demo/logs.png)
 - **My Symptom Journal**: Simple interface for logging and reviewing symptoms.
   ![My Symptom Journal](demo/symptoms.png)
 - **Appointments**: Calendar view for managing healthcare appointments effectively.
